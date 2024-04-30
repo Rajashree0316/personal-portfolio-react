@@ -1,24 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Particles from './components/Particles';
+import NavBar from './components/NavBar';
+import Home from './components/Home';
+import About from './components/About';
+import Skills from './components/Skills';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
+import ScrollToTopButton from './components/ScrollToTopButton';
+import Theme from './components/theme';
+import { useState } from 'react';
 
-function App() {
+const App = () => {
+  const [darkModeEnabled, setDarkModeEnabled] = useState(false);
+  const handleToggleDarkMode = () => {
+    setDarkModeEnabled(!darkModeEnabled);
+  };
+  const theme = darkModeEnabled ? Theme.darkMode : Theme.lightMode;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className="app"
+      style={{
+        backgroundColor: theme.backgroundColor,
+        color: theme.textColor,
+      }}>
+    
+      <NavBar handleToggleDarkMode={handleToggleDarkMode} darkModeEnabled={darkModeEnabled}/>
+      <Home />
+      <About />
+      <Skills />
+      <Projects/>
+      <Contact />
+      <ScrollToTopButton/>
+      <Particles id="tsparticles" darkModeEnabled={darkModeEnabled} />
+      
+    </div >
   );
 }
 

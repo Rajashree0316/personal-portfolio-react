@@ -1,38 +1,653 @@
-.App {
+/********** Custom Fonts *************/
+@font-face {
+  font-family: "Anta", sans-serif;
+  src: url('./assets/fonts/Anta/Anta-Regular.ttf');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Fredoka", sans-serif;
+  src: url('./assets/fonts/Fredoka/Fredoka-VariableFont_wdth\,wght.ttf');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Anta", sans-serif;
+  src: url('./assets/fonts/Anta/Anta-Regular.ttf');
+  font-weight: 300;
+}
+
+/************ Default Css ************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 75px;
+}
+
+body {
+  font-weight: 400;
+  overflow-x: hidden;
+  position: relative;
+  font-family: "Fredoka", sans-serif !important;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+}
+
+p,
+a,
+li,
+button,
+ul {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+.allHeadings {
+  text-align: center;
+  font-family: "Fredoka", sans-serif;
+  margin: 30px 0px;
+  color: #f5efef;
+  padding: 0px 10px;
+}
+
+.allHeadings h1 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.allHeadings p {
+  font-size: 20px;
+  font-weight: 500;
+
+}
+
+
+/************ Navbar Css ************/
+nav.navbar {
+  padding: 18px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 9999;
+  transition: 0.32s ease-in-out;
+}
+
+nav.navbar.scrolled {
+  padding: 0px 0;
+  background-color: #121212;
+}
+
+nav.navbar .navbar-nav .nav-link.navbar-link {
+  font-weight: 400;
+  color: #fff !important;
+  letter-spacing: 0.8px;
+  padding: 20px 25px;
+  font-size: 18px;
+  opacity: 0.75;
+  font-family: "Fredoka", sans-serif;
+}
+
+.rsBrand {
+  font-weight: 400;
+  color: #fff !important;
+  font-family: "Anta", sans-serif;
+  letter-spacing: 0.8px;
+  padding: 0 25px;
+  font-size: 18px;
+  opacity: 0.75;
+  font-style: italic;
+}
+
+
+nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
+nav.navbar .navbar-nav a.nav-link.navbar-link.active {
+  opacity: 1;
+}
+
+span.navbar-text {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-text button {
+  font-family: "Fredoka", sans-serif;
+  font-weight: 400;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 10px 15px;
+  font-size: 18px;
+  margin-left: 18px;
+  position: relative;
+  background-color: transparent;
+  transition: 0.3s ease-in-out;
+}
+
+.navbar-text button span {
+  z-index: 1;
+}
+
+.navbar-text button::before {
+  content: "";
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  background-color: #fff;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  transition: 0.3s ease-in-out;
+}
+
+.navbar-text button:hover {
+  color: #121212;
+}
+
+.navbar-text button:hover::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+nav.navbar .navbar-toggler:active,
+nav.navbar .navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+nav.navbar .navbar-toggler-icon {
+  width: 24px;
+  height: 17px;
+  background-image: none;
+  position: relative;
+  border-bottom: 2px solid #fff;
+  transition: all 300ms linear;
+  top: -2px;
+}
+
+nav.navbar .navbar-toggler-icon:focus {
+  border-bottom: 2px solid #fff;
+}
+
+nav.navbar .navbar-toggler-icon:after,
+nav.navbar .navbar-toggler-icon:before {
+  width: 24px;
+  position: absolute;
+  height: 2px;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+  content: '';
+  z-index: 2;
+  transition: all 300ms linear;
+}
+
+nav.navbar .navbar-toggler-icon:after {
+  top: 8px;
+}
+
+nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+  transform: rotate(45deg);
+  background-color: #fff;
+  height: 2px;
+}
+
+nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+  transform: translateY(8px) rotate(-45deg);
+  background-color: #fff;
+  height: 2px;
+}
+
+nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  border-color: transparent;
+}
+
+
+/************ Banner Css ************/
+
+.banner {
+  margin-top: 0;
+  padding: 150px 0 100px 0;
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.banner .tagline {
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  padding: 8px 10px;
+  font-size: 20px;
+  margin-bottom: 16px;
+  display: inline-block;
+  font-family: "Fredoka", sans-serif;
+  color: #ffffff;
+
+}
+
+.banner h1 {
+  font-size: 65px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 1;
+  margin-bottom: 20px;
+  display: block;
+  font-family: "Fredoka", sans-serif;
+  color: #ffffff;
+
+}
+
+.banner h3 {
+  font-size: 45px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 1;
+  margin-bottom: 20px;
+  display: block;
+  font-family: "Fredoka", sans-serif;
+  color: #ffffff;
+
+}
+
+.banner p {
+  color: #ffffff;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  line-height: 1.5em;
+  width: 96%;
+  font-family: "Fredoka", sans-serif;
+
+}
+
+.touchBtn {
+  color: #fff;
+  margin-top: 40px;
+  cursor: pointer;
+}
+
+.touchBtn a {
+  color: #121212;
+  text-decoration: none;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  padding: 10px;
+  text-shadow: 0px 0px 8px black,
+    0px 0px 12px black;
+
+}
+
+.banner img {
+  animation: updown 3s linear infinite;
+  margin-bottom: 40px;
+
+}
+
+@keyframes updown {
+  0% {
+    transform: translateY(-20px);
+  }
+
+  50% {
+    transform: translateY(20px);
+  }
+
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+.txt-rotate>.wrap {
+  border-right: 0.08em solid #666;
+}
+
+/************ About CSS ************/
+
+.about {
+  margin-top: 0;
+  padding: 50px 0px;
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.cardContainer {
+  background-color: rgb(237, 242, 246);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.intro {
+  font-style: bold;
+  font-size: 25px;
+  font-family: "Fredoka", sans-serif;
+  text-align: right;
+}
+
+.para {
+  font-style: normal;
+  font-size: 20px;
+  font-family: "Fredoka", sans-serif;
+  text-align: left;
+}
+
+/**************   Skills CSS ***************/
+
+.Skills {
+  margin-top: 0;
+  padding: 50px 0 100px 0;
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #ffffff;
+
+}
+
+.tech-icons {
+  font-size: 4.5em;
+  margin: 15px !important;
+  padding: 10px !important;
+  opacity: 0.93 !important;
+  border: 1.7px solid rgb(89, 0, 190) !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+  border-radius: 20px !important;
+  display: table !important;
+  box-shadow: 4px 5px 4px 3px rgba(117, 0, 250, 0.37) !important;
+  overflow: hidden !important;
+  transition: all 0.4s ease 0s !important;
+}
+
+.tech-icons:hover {
+  transform: scale(1.03) !important;
+  overflow: hidden !important;
+  border: 2.2px solid rgba(117, 0, 250, 1) !important;
+}
+
+.tech-icon-images {
+  padding: 20px !important;
+  line-height: 1.6 !important;
+}
+
+/******** Project Card *************/
+.project-card-view {
+  box-shadow: 0 4px 5px 3px rgba(119, 53, 136, 0.459);
+  color: white !important;
+  background-color: transparent !important;
+  opacity: 0.9 !important;
+  transition: all 0.5s ease 0s;
+  height: 100% !important;
+
+}
+
+.project-card-view:hover {
+  transform: scale(1.02) !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 4px 5px rgba(129, 72, 144, 0.561) !important;
+
+}
+
+.project-card-body-title {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 1.1em;
+}
+
+.project-card-body-desc {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0.8px;
+}
+
+.btnClass {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.btn-primary,
+.btn-secondary {
+  color: #fff !important;
+  background-color: #623686 !important;
+  border-color: #623686 !important;
+  margin: 0px 5px 0px 6px;
+}
+
+.btn-primary:focus,
+.btn-primary:hover {
+  color: #fff !important;
+  background-color: #6d20c5d7 !important;
+  border-color: #6d20c5d7 !important;
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+
+.btn-secondary:focus,
+.btn-secondary:hover {
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388;
+}
+
+.slider {
+  width:100%;
+  min-width: 980px;
+  height: 100%;
+  display: flex;
+}
+
+/************ Projects CSS ************/
+.project {
+  padding: 50px 0;
+  color: #ffffff;
+
+}
+
+.project h2 {
+  font-size: 45px;
+  font-weight: 700;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.project h6 {
+  color: #f5efef;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  line-height: 1.5em;
+  margin: 14px auto 30px auto;
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.project .nav.nav-pills {
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 2rem;
+  background-color: rgb(255 255 255 / 10%);
+  overflow: hidden;
+  padding: 0 !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.project .nav.nav-pills .nav-item {
+  width: 50%;
+}
+
+.project .nav.nav-pills .nav-link {
+  background-color: transparent;
+  border-radius: 0;
+  padding: 17px 0;
+  color: #fff;
+  width: 100%;
+  font-size: 17px;
+  letter-spacing: 0.8px;
+  font-weight: 500;
+  position: relative;
+  transition: 0.3s ease-in-out;
+  text-align: center;
+  z-index: 0;
+}
+
+.project .nav.nav-pills .nav-link::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: 0.3s ease-in-out;
+}
+
+.project .nav.nav-pills .nav-link.active::before {
+  width: 100% !important;
+}
+
+.project .nav.nav-pills .nav-link.active {
+  border: 0px solid rgba(255, 255, 255, 1);
+}
+
+/****************  Contact CSS ***************/
+.contact {
+  margin-top: 0;
+  padding: 50px 0 100px 0;
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.linkSet {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  list-style: none;
+  gap: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.link a {
+  color: #fff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.icons {
+  font-size: 30px;
+}
+
+/************* Scroll to top CSS ************/
+.topBtn {
+  position: absolute;
+  right: 15px;
+  bottom: 20px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 40px;
+}
+
+
+/****** Light-Dark Mode CSS *******/
+.light-mode-button {
+  background-color: linear-gradient(90deg, rgba(154,79,112,1) 0%, rgba(148,187,233,1) 100%);
+  color: #fff;
+}
+
+.dark-mode-button {
+  background-color:linear-gradient(90deg, rgba(154,79,112,0.01) 49%, rgba(20,16,16,1) 100%);
+  color: #ffffff;
+
+}
+.modeBtn{
+  color: #ffffff;
+  margin: 0px 20px;
+}
+
+
+/*********** Media Queries **************/
+@media (min-width:1700px) {
+  main .container {
+    max-width: 100%;
+    padding: 0 150px;
   }
-  to {
-    transform: rotate(360deg);
+}
+@media (min-width:1026px)and (max-width:1198px) {
+  .slider{
+   width:80%;
+   min-width: 850px;
+  }
+ }
+ @media (min-width:992px)and (max-width:1024px) {
+  .slider{
+   margin:0px 50px;
+  }
+ }
+ @media (max-width:990px){
+  
+  .modeBtn{
+    display: none;
+  }
+ }
+@media  (max-width:767px) {
+  .slider{
+  min-width: 500px;
+  }
+
+  .tech-icons {
+    margin: 10px !important;
+  }
+ }
+ @media  (max-width:575px) {
+  .slider{
+    min-width: 10px;
+  }
+  .allHeadings p{
+    font-size: 17px;
+  }
+ }
+ 
+ @media (min-width:200px) and (max-width: 380px) {
+  .project .nav.nav-pills {
+    width: 90%;
+  }
+
+  .project .nav.nav-pills .nav-item {
+    width: 50%;
   }
 }
