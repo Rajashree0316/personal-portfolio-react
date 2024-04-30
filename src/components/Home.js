@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback,useMemo} from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import headerImg from "../assets/img/coder.svg";
 import 'animate.css';
@@ -11,17 +11,9 @@ const Home = () => {
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [index, setIndex] = useState(0);
-  const toRotate = ["Front-end Developer", "Web Developer"];
+  const toRotate = useMemo(() => ["Front-end Developer", "Web Developer"], []); // Memoize the toRotate array
   const period = 2000;
   
-  useEffect(() => {
-    let ticker = setInterval(() => {
-      tick();
-    }, delta);
-
-    return () => { clearInterval(ticker) };
-  }, [delta,tick,text])
-
   const tick = useCallback(() => {
     let i = index % toRotate.length;
     let fullText = toRotate[i];
@@ -45,7 +37,14 @@ const Home = () => {
       setIndex(prevIndex => (prevIndex + 1) % toRotate.length);
     }
   },[index, isDeleting, loopNum, period, setDelta, setIsDeleting, setIndex, setLoopNum, setText, text, toRotate]);
+  
+  useEffect(() => {
+    let ticker = setInterval(() => {
+      tick();
+    }, delta);
 
+    return () => { clearInterval(ticker) };
+  }, [delta,tick,text])
   return (
     <section className="banner" id="home">
       <Container>
