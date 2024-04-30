@@ -10,16 +10,10 @@ const Home = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const [setIndex] = useState(1);
+  const [index, setIndex] = useState(1);
   const toRotate = ["Front-end Developer", "Web Developer"];
   const period = 2000;
-  useEffect(() => {
-    let ticker = setInterval(() => {
-      tick();
-    }, delta);
-
-    return () => { clearInterval(ticker) };
-  }, [delta,text]);
+ 
 
   const tick = () => {
     let i = loopNum % toRotate.length;
@@ -44,6 +38,13 @@ const Home = () => {
       setIndex(prevIndex => prevIndex + 1);
     }
   }
+  useEffect(() => {
+    let ticker = setInterval(() => {
+      tick();
+    }, delta);
+
+    return () => { clearInterval(ticker) };
+  }, [delta,text,tick])
   return (
     <section className="banner" id="home">
       <Container>
