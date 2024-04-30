@@ -12,13 +12,13 @@ const Contact = () => {
       </div>
       <ul className="linkSet">
         <li className="link">
-          <a href="mailto:rajashreeasok16@gmail.com" target="_blank"><MdEmail className="icons" /></a>
+          <a href="mailto:rajashreeasok16@gmail.com" target="_blank" rel="noreferrer"><MdEmail className="icons" /></a>
         </li>
         <li className="link">
-          <a href="https://www.linkedin.com/in/rajashree-a-60857716a" target="_blank"><FaLinkedin className="icons" /></a>
+          <a href="https://www.linkedin.com/in/rajashree-a-60857716a" target="_blank" rel="noreferrer"><FaLinkedin className="icons" /></a>
         </li>
         <li className="link">
-          <a href="https://github.com/Rajashree0316" target="_blank"><IoLogoGithub className="icons" /></a>
+          <a href="https://github.com/Rajashree0316" target="_blank" rel="noreferrer"><IoLogoGithub className="icons" /></a>
         </li>
       </ul>
     </section>

@@ -10,7 +10,7 @@ import { ProjectCard } from './ProjectCard';
 import {Row} from "react-bootstrap";
 
 
-export const Project_JS = () => {
+export const ProjectJS = () => {
     
     const javascriptProjects = [
         {

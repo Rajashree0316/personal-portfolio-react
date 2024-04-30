@@ -2,7 +2,6 @@ import { Col, Card, Button } from "react-bootstrap";
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
 
-
 export const ProjectCard = ({ title, description, imgUrl,demoLink,gitLink}) => {
   return (
     <Col size={12} sm={6} md={4} style={{marginBottom: '60px'}}>

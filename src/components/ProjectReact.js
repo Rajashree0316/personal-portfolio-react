@@ -14,10 +14,7 @@ import foodCart from "../assets/img/react-img/8foodCart.png";
 import todo from "../assets/img/react-img/9todo.png";
 import cocktail from "../assets/img/react-img/10cocktail.png";
 
-
-
-
-export const Project_react = () => {
+export const ProjectReact = () => {
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },

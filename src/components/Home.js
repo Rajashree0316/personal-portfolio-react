@@ -19,7 +19,7 @@ const Home = () => {
     }, delta);
 
     return () => { clearInterval(ticker) };
-  }, [text])
+  }, [delta,text]);
 
   const tick = () => {
     let i = loopNum % toRotate.length;

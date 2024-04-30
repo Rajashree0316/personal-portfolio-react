@@ -1,8 +1,8 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
-import { Project_JS } from "./Project_JS";
-import { Project_react } from "./Project_react";
+import { ProjectJS } from "./ProjectJS";
+import { ProjectReact } from "./ProjectReact";
 
 const Projects = () => {
   return (
@@ -26,10 +26,10 @@ const Projects = () => {
                     </Nav>
                     <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
                       <Tab.Pane eventKey="first">
-                        <Project_JS />
+                        <ProjectJS />
                       </Tab.Pane>
                       <Tab.Pane eventKey="second">
-                        <Project_react />
+                        <ProjectReact />
                       </Tab.Pane>
                     </Tab.Content>
                   </Tab.Container>
