@@ -1,4 +1,3 @@
-import { Container, Row, Col } from "react-bootstrap";
 import { MdEmail } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
 import { IoLogoGithub } from "react-icons/io";
