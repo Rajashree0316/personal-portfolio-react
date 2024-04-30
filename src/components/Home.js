@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import headerImg from "../assets/img/coder.svg";
 import 'animate.css';
@@ -10,13 +10,20 @@ const Home = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const [index, setIndex] = useState(1);
+  const [index, setIndex] = useState(0);
   const toRotate = ["Front-end Developer", "Web Developer"];
   const period = 2000;
- 
+  
+  useEffect(() => {
+    let ticker = setInterval(() => {
+      tick();
+    }, delta);
 
-  const tick = () => {
-    let i = loopNum % toRotate.length;
+    return () => { clearInterval(ticker) };
+  }, [delta,tick,text])
+
+  const tick = useCallback(() => {
+    let i = index % toRotate.length;
     let fullText = toRotate[i];
     let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1);
 
@@ -27,24 +34,18 @@ const Home = () => {
     }
     if (!isDeleting && updatedText === fullText) {
       setIsDeleting(true);
-      setIndex(prevIndex => prevIndex - 1);
+      setIndex(prevIndex => prevIndex === 0 ? toRotate.length - 1 : prevIndex - 1); 
       setDelta(period);
     } else if (isDeleting && updatedText === '') {
       setIsDeleting(false);
       setLoopNum(loopNum + 1);
-      setIndex(1);
+      setIndex(0);
       setDelta(500);
     } else {
-      setIndex(prevIndex => prevIndex + 1);
+      setIndex(prevIndex => (prevIndex + 1) % toRotate.length);
     }
-  }
-  useEffect(() => {
-    let ticker = setInterval(() => {
-      tick();
-    }, delta);
+  },[index, isDeleting, loopNum, period, setDelta, setIsDeleting, setIndex, setLoopNum, setText, text, toRotate]);
 
-    return () => { clearInterval(ticker) };
-  }, [delta,text,tick])
   return (
     <section className="banner" id="home">
       <Container>
@@ -66,14 +67,11 @@ const Home = () => {
                   <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Front-end Developer","Web Developer"]'>
                     <h3 className="wrap">{text}</h3></span>
                   <p>I am a passionate web developer with experience in building responsive and user-friendly web applications.</p>
-
-                  
                   <Button variant="light" className="touchBtn">
                   <a href={resume} target="_blank" rel="noReferrer">Resume</a>
                   
                   </Button>
-                 
-
+            
                 </div>}
             </TrackVisibility>
           </Col>
