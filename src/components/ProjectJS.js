@@ -1,11 +1,11 @@
 import React from 'react';
-import drum from '../assets/img/js-img/drum.png';
-import expense from "../assets/img/js-img/expense.png";
-import gallery from "../assets/img/js-img/gallery.png";
-import qrCode from "../assets/img/js-img/qrCode.png";
-import quiz from "../assets/img/js-img/quiz.png";
-import random from "../assets/img/js-img/random.png";
-import stopwatch from "../assets/img/js-img/stopwatch.png";
+import drum from '../assets/js-img/drum.png';
+import expense from "../assets/js-img/expense.png";
+import gallery from "../assets/js-img/gallery.png";
+import qrCode from "../assets/js-img/qrCode.png";
+import quiz from "../assets/js-img/quiz.png";
+import random from "../assets/js-img/random.png";
+import stopwatch from "../assets/js-img/stopwatch.png";
 import { ProjectCard } from './ProjectCard';
 import {Row} from "react-bootstrap";
 

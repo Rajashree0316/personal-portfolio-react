@@ -6,8 +6,6 @@ import {FaReact, FaGitAlt, FaBootstrap } from "react-icons/fa";
 import { SiRedux,SiJson} from "react-icons/si";
 import { DiResponsive } from "react-icons/di";
 
-
-
 const Skills = () =>{
     return (
       <section className="Skills" id="skills">
@@ -17,7 +15,7 @@ const Skills = () =>{
           </p>
           <p>Here's a list of technologies I've worked with</p>
         </div> 
-    <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
+    <Row style={{ justifyContent: "center", paddingBottom: "50px",margin:"0px" }}>
       <Col xs={4} md={2} className="tech-icons">
         <TiHtml5 />
       </Col>

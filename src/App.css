@@ -476,6 +476,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   min-width: 980px;
   height: 100%;
   display: flex;
+  margin: 0px 20px;
 }
 
 /************ Projects CSS ************/
@@ -626,11 +627,21 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
  }
 @media  (max-width:767px) {
   .slider{
-  min-width: 500px;
+  min-width: 450px;
+  width: 92%;
+  margin: auto 0px;
   }
-
   .tech-icons {
     margin: 10px !important;
+  }
+  .banner.tagline{
+    font-size: 15px;
+  }
+  .banner h1{
+    font-size: 20px; 
+  }
+  .banner h1 ,.banner h3 {
+    font-size: 25px; 
   }
  }
  @media  (max-width:575px) {

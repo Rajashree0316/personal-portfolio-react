@@ -63,7 +63,7 @@ const Home = () => {
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                   <span className="tagline">Welcome to my portfolio</span>
                   <h1>I'm Rajashree </h1>
-                  <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Front-end Developer","Web Developer"]'>
+                  <span className="txt-rotate" data-period="1000" data-rotate='[ "Front-end Developer","Web Developer"]'>
                     <h3 className="wrap">{text}</h3></span>
                   <p>I am a passionate web developer with experience in building responsive and user-friendly web applications.</p>
                   <Button variant="light" className="touchBtn">

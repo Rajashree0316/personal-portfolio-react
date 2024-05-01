@@ -3,16 +3,16 @@ import { ProjectCard } from './ProjectCard';
 import { Row } from "react-bootstrap";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import birthday from "../assets/img/react-img/1birthday.png";
-import reviews from "../assets/img/react-img/2reviews.png";
-import accordion from "../assets/img/react-img/3accor.png";
-import tabs from "../assets/img/react-img/4tabs.png";
-import grocery from "../assets/img/react-img/5grocery.png";
-import navC from "../assets/img/react-img/6navC.png";
-import modalSide from "../assets/img/react-img/7modalSide.png";
-import foodCart from "../assets/img/react-img/8foodCart.png";
-import todo from "../assets/img/react-img/9todo.png";
-import cocktail from "../assets/img/react-img/10cocktail.png";
+import birthday from '../assets/react-img/1birthday.png';
+import reviews from "../assets/react-img/2reviews.png";
+import accordion from "../assets/react-img/3accor.png";
+import tabs from "../assets/react-img/4tabs.png";
+import grocery from "../assets/react-img/5grocery.png";
+import navC from "../assets/react-img/6navC.png";
+import modalSide from "../assets/react-img/7modalSide.png";
+import foodCart from "../assets/react-img/8foodCart.png";
+import todo from "../assets/react-img/9todo.png";
+import cocktail from "../assets/react-img/10cocktail.png";
 
 export const ProjectReact = () => {
   const responsive = {
@@ -97,7 +97,7 @@ export const ProjectReact = () => {
       title: "Cart",
       description: "We will use react hooks to render a list of items to simulates the functionality of an online shopping platform, allowing users to browse products, add items to their cart, update quantities, and proceed to checkout.",
       imgUrl: foodCart,
-      demoLink: "https://8foodcart-react.netlify.app/",
+      demoLink: "https://8cart-react.netlify.app/",
       gitLink: "https://github.com/Rajashree0316/8-cart-react",
     },
     {
@@ -120,19 +120,21 @@ export const ProjectReact = () => {
       <Row>
         <Carousel
           responsive={responsive}
-          swipeable={false}
+          swipeable={true}
           draggable={false}
           showDots={false}
           ssr={true} 
           keyBoardControl={true}
           customTransition="all .5"
           transitionDuration={500}
+          removeArrowOnDeviceType={['tablet', 'mobile']}
+
         >
           {
             reactProjects.map((item, index) => {
               return (
-                <div className="slider">
-                  <ProjectCard key={index} {...item} />
+                <div className="slider" key={index}>
+                  <ProjectCard  {...item} />
                 </div>
               )
             })
