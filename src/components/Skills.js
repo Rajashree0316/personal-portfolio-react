@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo} from "react";
 import { motion } from "framer-motion";
 import { DiHtml5, DiCss3 } from "react-icons/di";
 import { IoLogoJavascript } from "react-icons/io5";
@@ -28,12 +28,12 @@ const Skills = () => {
     { icon: <SiNetlify />, name: "Netlify", color: "#00C7B7" },
   ];
 
-  const mernSkills = [
+  const mernSkills = useMemo(() => [
     { name: "MongoDB", icon: <SiMongodb />, color: "#4DB33D", level: 30 },
     { name: "Express.js", icon: <SiExpress />, color: "#FFFFFF", level: 20 },
     { name: "React.js", icon: <FaReact />, color: "#61DAFB", level: 85 },
     { name: "Node.js", icon: <SiVite />, color: "#8CC84B", level: 40 }, // Node icon placeholder
-  ];
+  ],[]);
 
   const [shuffledFrontend, setShuffledFrontend] = useState(frontendSkills);
   const [shuffledTools, setShuffledTools] = useState(tools);
@@ -54,7 +54,7 @@ const Skills = () => {
       setProgress(prev => prev.map((val, i) => (val < mernSkills[i].level ? val + 1 : val)));
     }, 15);
     return () => clearInterval(interval);
-  }, []);
+  }, [mernSkills]);
 
   const renderCards = (items) =>
     items.map((skill, i) => (

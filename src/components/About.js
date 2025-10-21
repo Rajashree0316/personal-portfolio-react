@@ -10,7 +10,6 @@ const About = ({ darkModeEnabled }) => {
     document.body.setAttribute("data-theme", darkModeEnabled ? "dark" : "light");
   }, [darkModeEnabled]);
 
-  const accentColor = darkModeEnabled ? Theme.darkMode.accentColor : Theme.lightMode.accentColor;
 
   return (
     <div className="common-container">
