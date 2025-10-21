@@ -1,0 +1,46 @@
+.pinterest-grid {
+  column-count: 4;
+  column-gap: 16px;
+}
+
+.js-project-card {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  background: var(--cardBg);
+  color: var(--textColor);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.js-project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.js-project-card .project-card-body {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+@media (max-width: 1200px) {
+  .pinterest-grid {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 900px) {
+  .pinterest-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .pinterest-grid {
+    column-count: 1;
+  }
+}

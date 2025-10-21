@@ -9,33 +9,41 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import Theme from './components/theme';
-import { useState } from 'react';
+import Experience from './components/Experience';
+import Footer from './components/Footer';
+import { useState, useEffect } from 'react';
 
 const App = () => {
   const [darkModeEnabled, setDarkModeEnabled] = useState(false);
+
+  // toggle body class
+  useEffect(() => {
+    document.body.classList.toggle("dark-mode", darkModeEnabled);
+    document.body.classList.toggle("light-mode", !darkModeEnabled);
+  }, [darkModeEnabled]);
+
   const handleToggleDarkMode = () => {
     setDarkModeEnabled(!darkModeEnabled);
   };
-  const theme = darkModeEnabled ? Theme.darkMode : Theme.lightMode;
 
   return (
-    <div className="app"
-      style={{
-        backgroundColor: theme.backgroundColor,
-        color: theme.textColor,
-      }}>
-    
-      <NavBar handleToggleDarkMode={handleToggleDarkMode} darkModeEnabled={darkModeEnabled}/>
-      <Home />
+    <div className="app">
+      <NavBar handleToggleDarkMode={handleToggleDarkMode} darkModeEnabled={darkModeEnabled} />
+      <Home darkModeEnabled={darkModeEnabled} />
       <About />
       <Skills />
-      <Projects/>
+      <Projects />
+      <Experience />
       <Contact />
-      <ScrollToTopButton/>
+      <Footer />
+
+      <ScrollToTopButton />
       <Particles id="tsparticles" darkModeEnabled={darkModeEnabled} />
-      
+
     </div >
   );
 }
 
 export default App;
+
+

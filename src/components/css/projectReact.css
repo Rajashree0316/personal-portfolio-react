@@ -1,0 +1,121 @@
+.react-project-slider-wrapper {
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.react-project-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.react-project-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.react-project-card {
+  min-width: 320px;
+  max-width: 320px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--cardBg);
+  color: var(--textColor);
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+.react-project-card .project-thumbnail img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.react-project-card .project-card-body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card-body h3 {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.desc {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.features-heading {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--accentColor);
+}
+
+.features-list {
+  font-size: 12px;
+  padding-left: 16px;
+  margin-bottom: 4px;
+}
+
+.features-list li:hover {
+  color: var(--accentColor);
+}
+
+.tech-react-icons {
+  display: flex;
+  gap: 6px;
+  font-size: 1.4rem;
+  margin-top: auto;
+}
+
+.footer-btns {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.demo-btn {
+  background-color: #0ea5e9;
+  color: #fff;
+}
+
+.github-btn {
+  background-color: #24292e;
+  color: #fff;
+}
+
+.demo-btn:hover {
+  background-color: #0284c7;
+}
+
+.github-btn:hover {
+  background-color: #444c56;
+}
+
+/* Responsive Cards */
+@media (max-width: 1023px) {
+  .react-project-card {
+    min-width: 48%;
+    max-width: 48%;
+  }
+}
+
+@media (max-width: 767px) {
+  .react-project-card {
+    min-width: 280px;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 425px) {
+  .react-project-card {
+    min-width: 220px;
+    max-width: 220px;
+  }
+}

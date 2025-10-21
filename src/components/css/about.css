@@ -1,0 +1,259 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  transition: background 0.5s ease, color 0.5s ease;
+  color: var(--textColor);
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 35px;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.about-left {
+  flex: 1;
+  text-align: center;
+  min-width: 220px;
+}
+
+.photo-container {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: float 3s ease-in-out infinite;
+  background: var(--cardBg);
+  transition: transform 0.5s ease;
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.photo-container:hover .profile-photo {
+  transform: scale(1.08) rotate(-2deg);
+  filter: brightness(1.1);
+}
+
+.iconGroup {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.iconBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #c6c6c6;
+  font-size: 24px;
+  transition: transform 0.4s, filter 0.4s, background-color 0.4s;
+  cursor: pointer;
+}
+
+.iconBtn.github {
+  color: #000;
+}
+
+.iconBtn.linkedin {
+  color: #017efc;
+}
+
+.iconBtn.gmail {
+  color: #D14836;
+}
+
+.iconBtn.medium {
+  color: #000;
+}
+
+.iconBtn:hover {
+  transform: scale(1.2) rotate(8deg);
+  filter: brightness(1.2);
+  background-color: rgba(222, 219, 219, 0.2);
+}
+
+.about-right {
+  flex: 2;
+  min-width: 250px;
+  color: var(--textColor);
+}
+
+.intro,
+.para {
+  font-size: 18px;
+  line-height: 1.7;
+  text-align: justify;
+  transition: color 0.4s ease;
+}
+
+.hobbies {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 10px 0;
+  scroll-behavior: smooth;
+}
+
+.hobbies::-webkit-scrollbar {
+  display: none;
+}
+
+.hobbies {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hobby {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100px;
+  font-weight: 500;
+  transition: transform 0.3s ease;
+  color: var(--textColor);
+}
+
+.hobby:hover {
+  transform: translateY(-5px);
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-up {
+  animation: fadeSlideUp 1s ease forwards;
+}
+
+.animate-fade {
+  animation: fadeIn 1.2s ease forwards;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .intro {
+    font-size: 17px;
+  }
+
+  .para {
+    font-size: 15px;
+    margin-bottom: 0;
+  }
+
+  .about-container {
+    gap: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-right {
+    width: 100%;
+  }
+
+  .about-left {
+    margin-bottom: 20px;
+  }
+
+  .iconBtn {
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+  }
+
+  .hobbies {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .hobby {
+    min-width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-container {
+    width: 120px;
+    height: 120px;
+  }
+
+  .intro,
+  .para {
+    font-size: 15px;
+    text-align: left;
+  }
+
+  .iconBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .hobbies {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hobby {
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+}

@@ -1,0 +1,249 @@
+.experience-section{
+  padding:0.1rem 0 0;
+}
+/************ Timeline ************/
+.exp-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/************ Center Zigzag Line ************/
+.exp-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--accentColor), transparent);
+  opacity: 0.5;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+/************ Moving Arrow on Timeline ************/
+.exp-timeline::after {
+  content: "▼";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--accentColor);
+  font-size: 1.2rem;
+  animation: arrowMove 1.8s infinite ease-in-out;
+}
+
+@keyframes arrowMove {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(6px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/************ Card Popup Animation ************/
+@keyframes popupIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) translateY(50px);
+  }
+  80% {
+    transform: scale(1.03) translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/************ Experience Card ************/
+.exp-card {
+  position: relative;
+  width: 44%;
+  background: var(--cardBg);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid rgba(var(--accentRGB, 255, 182, 193), 0.25);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.5s ease;
+  animation: popupIn 0.8s ease forwards;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.exp-card.left {
+  align-self: flex-start;
+  animation-delay: 0.3s;
+  margin-right: auto;
+}
+
+.exp-card.right {
+  align-self: flex-end;
+  animation-delay: 0.6s;
+  margin-left: auto;
+}
+
+/************ Connect Line to Cards ************/
+.exp-card::after {
+  content: "";
+  position: absolute;
+  top: 30px;
+  width: 25px;
+  height: 3px;
+  background: var(--accentColor);
+  z-index: 1;
+}
+
+.exp-card.left::after {
+  right: -25px;
+}
+
+.exp-card.right::after {
+  left: -25px;
+}
+
+/************ Hover Effects ************/
+.exp-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--accentColor) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.exp-card:hover::before {
+  opacity: 0.25;
+}
+
+.exp-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 18px 45px rgba(var(--accentRGB, 255, 182, 193), 0.35);
+}
+
+/************ Header (Title, Company, Year) ************/
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 1.2rem;
+  z-index: 1;
+  position: relative;
+}
+
+.exp-role h3 {
+  font-size: 1.1rem;
+  color: var(--textColor);
+  margin-bottom: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.3s ease;
+}
+
+.exp-role h4 {
+  font-size: 0.95rem;
+  color: var(--accentColor);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.exp-year {
+  font-weight: 600;
+  color: var(--accentColor);
+  border: 1px solid var(--accentColor);
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  background: rgba(var(--accentRGB, 255, 182, 193), 0.1);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.exp-card:hover .exp-year {
+  background: var(--accentColor);
+  color: #fff;
+}
+
+/************ Content ************/
+.exp-content {
+  text-align: left;
+  z-index: 1;
+  position: relative;
+}
+
+.exp-content p {
+  color: rgba(0, 0, 0, 0.75);
+  line-height: 1.7;
+  font-size: 0.95rem;
+  transition: color 0.4s ease;
+  margin-bottom: 0;
+}
+
+body.dark-mode .exp-content p {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/************ Responsive ************/
+@media (max-width: 992px) {
+  .exp-card {
+    width: 90%;
+    align-self: center !important;
+  }
+
+  .exp-card::after {
+    display: none;
+  }
+
+  .exp-timeline::before {
+    left: 50%;
+  }
+
+  .exp-timeline::after {
+    left: 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  .exp-card {
+    width: 100%;
+    text-align: center;
+    padding: 1.5rem;
+  }
+  /* Hide center line and arrow on mobile */
+  .exp-timeline::before,
+  .exp-timeline::after {
+    display: none;
+  }
+
+  /* Also hide connector lines */
+  .exp-card::after {
+    display: none;
+  }
+}
+
+@media (max-width: 468px) {
+   .exp-header {
+    flex-direction: column;
+    text-align: left;
+    gap: 0.4rem;
+    margin-bottom: 0.8rem;
+  }
+}
+

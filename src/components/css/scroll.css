@@ -1,0 +1,9 @@
+/************* Scroll to top CSS ************/
+.topBtn {
+  position: absolute;
+  right: 15px;
+  bottom: 20px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 40px;
+}

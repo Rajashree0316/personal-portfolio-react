@@ -1,0 +1,192 @@
+/* ================== Skills Section ================== */
+.Skills {
+  text-align: center;
+  overflow: hidden;
+}
+
+.skill-category {
+  margin-bottom: 3rem;
+}
+
+.skill-category h2 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--textColor);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ================== Tech Grid ================== */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+}
+
+/* ================== Tech Cards ================== */
+.tech-card {
+  border-radius: 14px;
+  padding: 1rem 0.8rem;
+  width: 100%;
+  max-width: 130px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+/* Light/Dark Mode Cards */
+body.light-mode .tech-card {
+  background: rgba(226, 207, 207, 0.8);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .tech-card {
+  background: rgba(35, 35, 35, 0.9);
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+body.dark-mode .tech-icon svg {
+  filter: none;
+}
+
+body.dark-mode .tech-icon svg.github {
+  filter: invert(1);
+}
+
+/* Hover */
+.tech-card:hover {
+  transform: translateY(-8px) scale(1.05);
+}
+
+body.light-mode .tech-card:hover {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode .tech-card:hover {
+  background: rgba(55, 55, 55, 1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+}
+
+/* ================== Tech Icons ================== */
+.tech-icon {
+  font-size: 2.3rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+/* Hover Glow */
+.tech-card:hover .tech-icon {
+  transform: scale(1.15);
+  filter: brightness(1.2) drop-shadow(0 0 10px currentColor);
+}
+
+/* Labels */
+.tech-card span {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  color: var(--textColor);
+  opacity: 0.9;
+}
+
+/* ================== MERN Row ================== */
+.progress-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.progress-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.radial-progress {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: conic-gradient(var(--color) 0% var(--progress), rgba(255, 255, 255, 0.1) var(--progress) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+}
+
+.progress-icon {
+  font-size: 1.3rem;
+  position: absolute;
+}
+
+.progress-value {
+  position: absolute;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--textColor);
+  bottom: 2px;
+}
+
+.progress-label {
+  font-size: 0.65rem;
+  color: var(--textColor);
+  font-weight: 500;
+  margin-top: 0.2rem;
+}
+
+/* ================== Responsive ================== */
+@media (max-width: 992px) {
+  .tech-icon {
+    font-size: 2rem;
+  }
+
+  .tech-card {
+    max-width: 110px;
+  }
+}
+
+@media (max-width: 768px) {
+  .skill-category {
+    margin-bottom: 2rem;
+  }
+
+  .skill-category h2 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .tech-icon {
+    font-size: 1.9rem;
+  }
+
+  .tech-card span {
+    font-size: 0.8rem;
+  }
+
+  .radial-progress {
+    width: 50px;
+    height: 50px;
+  }
+
+  .progress-icon {
+    font-size: 1rem;
+  }
+
+  .progress-value {
+    font-size: 0.55rem;
+  }
+
+  .progress-label {
+    font-size: 0.6rem;
+  }
+}

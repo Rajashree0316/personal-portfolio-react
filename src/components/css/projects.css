@@ -1,0 +1,103 @@
+/* Nav Pills */
+.nav-pills {
+  width: 40vw;
+  margin: 0 auto;
+  border-radius: 2rem;
+  background-color: rgb(255 255 255 / 10%);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  padding: 0 !important;
+}
+
+.nav-pills .nav-item {
+  flex: 1;
+  text-align: center;
+}
+
+.pill-tab {
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 2rem;
+  padding: 12px 0;
+  transition: all 0.3s ease-in-out;
+  color: var(--textColor);
+  background: transparent;
+  text-decoration: none;
+  border: none;
+}
+
+.pill-tab.active {
+  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  color: #fff !important;
+}
+
+.pill-tab:hover {
+  opacity: 0.85;
+  text-decoration: none;
+}
+
+/* Sort Section */
+.sort-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.sort-buttons button {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--accentColor);
+  background: transparent;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 5px;
+}
+
+.sort-buttons button.active,
+.sort-buttons button:hover {
+  background: var(--accentColor);
+  color: #fff;
+}
+
+/* Mobile Dropdown */
+.dropdown-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mobile-dropdown {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  padding: 4px 8px;
+  font-size: 12px;
+  background-color: var(--cardBg);
+  color: inherit;
+  border: 1px solid var(--accentColor);
+}
+
+.dropdown-menu {
+  font-size: 12px;
+  color: inherit;
+  background-color: var(--cardBg);
+}
+
+/* Responsive Nav Pills */
+@media (max-width:1200px) { .nav-pills { width: 80vw; } }
+@media (max-width:1024px) { .nav-pills { width: 70vw; } }
+@media (max-width:768px) { 
+  .nav-pills { width: 60vw; }
+  .pill-tab { font-size: 13px; }
+  .sort-section { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .mobile-dropdown { font-size: 12px; padding: 5px 8px; }
+}
+@media (max-width:425px) { .nav-pills { width: 80vw; } }

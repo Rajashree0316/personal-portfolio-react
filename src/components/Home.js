@@ -1,83 +1,121 @@
-import { useState, useEffect, useCallback,useMemo} from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import headerImg from "../assets/img/coder.svg";
-import 'animate.css';
-import TrackVisibility from 'react-on-screen';
-import resume from "../documents/rajashree_asok_resume.pdf";
+import "animate.css";
+import TrackVisibility from "react-on-screen";
+import "./css/home.css";
 
-const Home = () => {
+const Home = ({ darkModeEnabled }) => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [text, setText] = useState('');
-  const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const [index, setIndex] = useState(0);
-  const toRotate = useMemo(() => ["Front-end Developer", "Web Developer"], []); // Memoize the toRotate array
-  const period = 2000;
-  
+  const [text, setText] = useState([]);
+  const [charIndex, setCharIndex] = useState(0);
+
+  const toRotate = useMemo(() => ["Front-end Developer", "Web Developer"], []);
+  const typingSpeed = 100;
+  const deletingSpeed = 50;
+  const pauseTime = 2000;
+
   const tick = useCallback(() => {
-    let i = index % toRotate.length;
-    let fullText = toRotate[i];
-    let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1);
+    const i = loopNum % toRotate.length;
+    const fullText = toRotate[i];
 
-    setText(updatedText);
-
-    if (isDeleting) {
-      setDelta(prevDelta => prevDelta / 2);
-    }
-    if (!isDeleting && updatedText === fullText) {
-      setIsDeleting(true);
-      setIndex(prevIndex => prevIndex === 0 ? toRotate.length - 1 : prevIndex - 1); 
-      setDelta(period);
-    } else if (isDeleting && updatedText === '') {
-      setIsDeleting(false);
-      setLoopNum(loopNum + 1);
-      setIndex(0);
-      setDelta(500);
+    if (!isDeleting) {
+      if (charIndex < fullText.length) {
+        setText((prev) => [...prev, fullText[charIndex]]);
+        setCharIndex(charIndex + 1);
+      } else {
+        setTimeout(() => setIsDeleting(true), pauseTime);
+      }
     } else {
-      setIndex(prevIndex => (prevIndex + 1) % toRotate.length);
+      if (text.length > 0) {
+        setText((prev) => prev.slice(0, prev.length - 1));
+      } else {
+        setIsDeleting(false);
+        setLoopNum(loopNum + 1);
+        setCharIndex(0);
+      }
     }
-  },[index, isDeleting, loopNum, period, setDelta, setIsDeleting, setIndex, setLoopNum, setText, text, toRotate]);
-  
+  }, [charIndex, isDeleting, loopNum, text, toRotate]);
+
   useEffect(() => {
-    let ticker = setInterval(() => {
-      tick();
-    }, delta);
+    const interval = setTimeout(tick, isDeleting ? deletingSpeed : typingSpeed);
+    return () => clearTimeout(interval);
+  }, [text, tick, isDeleting]);
 
-    return () => { clearInterval(ticker) };
-  }, [delta,tick,text])
   return (
-    <section className="banner" id="home">
-      <Container>
-        <Row className="align-items-center">
-          <Col xs={12} md={6} xl={6}>
-            <TrackVisibility>
-              {({ isVisible }) =>
-                <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
-                  <img src={headerImg} alt="Header Img" />
-                </div>}
-            </TrackVisibility>
-          </Col>
-          <Col xs={12} md={6} xl={6}>
-            <TrackVisibility>
-              {({ isVisible }) =>
-                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                  <span className="tagline">Welcome to my portfolio</span>
-                  <h1>I'm Rajashree </h1>
-                  <span className="txt-rotate" data-period="1000" data-rotate='[ "Front-end Developer","Web Developer"]'>
-                    <h3 className="wrap">{text}</h3></span>
-                  <p>I am a passionate web developer with experience in building responsive and user-friendly web applications.</p>
-                  <Button variant="light" className="touchBtn">
-                  <a href={resume} target="_blank" rel="noReferrer">Resume</a>
-                  
-                  </Button>
-            
-                </div>}
-            </TrackVisibility>
-          </Col>
-        </Row>
-      </Container>
+    <div className="common-container">
+      <section className="banner" id="home">
+        <Container>
+          <Row className="align-items-center">
+            <Col xs={12} md={6} xl={6}>
+              <TrackVisibility>
+                {({ isVisible }) => (
+                  <div
+                    className={
+                      isVisible ? "animate__animated animate__zoomIn" : ""
+                    }
+                  >
+                    <img src={headerImg} alt="Header" className="floating-img" />
+                  </div>
+                )}
+              </TrackVisibility>
+            </Col>
 
-    </section>
+            <Col xs={12} md={6} xl={6}>
+              <TrackVisibility>
+                {({ isVisible }) => (
+                  <div
+                    className={
+                      isVisible ? "animate__animated animate__fadeInRight" : ""
+                    }
+                  >
+                    <span className="tagline">Welcome to my portfolio</span>
+                    <h1>
+                      Hi, I’m <span className="highlight">Rajashree</span>
+                    </h1>
+
+                    <h3
+                      className={`wrap ${darkModeEnabled ? "wrap-dark" : "wrap-light"
+                        }`}
+                    >
+                      {text.map((char, idx) => (
+                        <span key={idx} className="letter">
+                          {char}
+                        </span>
+                      ))}
+                      <span className="cursor">|</span>
+                    </h3>
+
+                    <p className="intro-text">
+                      I craft seamless, interactive, and scalable web experiences
+                      that blend creativity with technology. My passion lies in
+                      transforming ideas into intuitive digital products — fast,
+                      accessible, and visually stunning.
+                    </p>
+
+                    <Button
+                      className={`resumeBtn ${darkModeEnabled ? "dark-mode-btn" : "light-mode-btn"
+                        }`}
+                    >
+                      <a
+                        href="https://drive.google.com/file/d/17_7ofulfbmFdUBOYlIhYvoVOiQjYjGhV/view?usp=sharing"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="touchBtn"
+                      >
+                        View Resume
+                      </a>
+                    </Button>
+                  </div>
+                )}
+              </TrackVisibility>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+    </div>
   );
-}
+};
+
 export default Home;

@@ -1,5 +1,6 @@
 import React from "react";
 import { MdOutlineKeyboardDoubleArrowUp } from "react-icons/md";
+import "./css/scroll.css";
 
 const ScrollToTopButton = () => {
   const handleClick = () => {
