@@ -19,16 +19,105 @@ import cocktail from "../assets/react-img/10cocktail.png";
 
 export const ProjectReact = ({ sortOrder, direction = "right" }) => {
   const projects = [
-    { id: 1, title: "Birthday Reminder", description: "React app that lists birthdays and upcoming events.", imgUrl: birthday, demoLink: "#", gitLink: "#", tech: ["react", "js", "html", "css"], features: ["List birthdays", "Add/Delete events", "React hooks"] },
-    { id: 2, title: "Reviews", description: "React hooks-based reviews component.", imgUrl: reviews, demoLink: "#", gitLink: "#", tech: ["react", "js", "html", "css"], features: ["Add reviews", "Update reviews", "Conditional rendering"] },
-    { id: 3, title: "Accordion", description: "Simple Accordion UI built with React hooks.", imgUrl: accordion, demoLink: "#", gitLink: "#", tech: ["react", "js", "bootstrap", "html", "css"], features: ["Expandable sections", "Clean UI"] },
-    { id: 4, title: "Tabs", description: "Multi-tab UI with conditional rendering in React.", imgUrl: tabs, demoLink: "#", gitLink: "#", tech: ["react", "js", "bootstrap", "html", "css"], features: ["Switch between tabs", "Dynamic content"] },
-    { id: 5, title: "Grocery-bud", description: "Manage grocery list with add/edit/delete.", imgUrl: grocery, demoLink: "#", gitLink: "#", tech: ["react", "js", "html", "css"], features: ["Add items", "Edit items", "Delete items"] },
-    { id: 6, title: "Navbar", description: "Reusable React navigation bar component.", imgUrl: navC, demoLink: "#", gitLink: "#", tech: ["react", "js", "router", "html", "css"], features: ["Responsive navbar", "Reusable component"] },
-    { id: 7, title: "Modal-Sidebar", description: "Modals and sidebars via conditional rendering.", imgUrl: modalSide, demoLink: "#", gitLink: "#", tech: ["react", "js", "modal", "html", "css"], features: ["Modal windows", "Sidebar toggle"] },
-    { id: 8, title: "Cart", description: "React cart simulation using context and hooks.", imgUrl: foodCart, demoLink: "#", gitLink: "#", tech: ["react", "js", "router", "html", "css"], features: ["Add to cart", "Remove items", "Calculate total"] },
-    { id: 9, title: "React-TodoList", description: "Todo list app with CRUD operations using React hooks.", imgUrl: todo, demoLink: "#", gitLink: "#", tech: ["react", "js", "html", "css"], features: ["Add tasks", "Mark complete", "Delete tasks"] },
-    { id: 10, title: "Cocktails", description: "Search and explore cocktails using third-party API.", imgUrl: cocktail, demoLink: "#", gitLink: "#", tech: ["react", "js", "router", "html", "css"], features: ["Search cocktails", "API integration", "Explore details"] },
+    {
+      id: 1,
+      title: "Birthday Reminder",
+      description: "React app that lists birthdays and upcoming events.",
+      imgUrl: birthday,
+      demoLink: "https://1birthday-reminder-react.netlify.app/",
+      gitLink: "https://github.com/Rajashree0316/1-birthday-reminder-react.git",
+      tech: ["react", "js", "html", "css"],
+      features: ["List birthdays", "Add/Delete events", "React hooks"]
+    },
+    {
+      id: 2,
+      title: "Reviews",
+      description: "React hooks-based reviews component.",
+      imgUrl: reviews,
+      demoLink: "https://2reviews-react.netlify.app/",
+      gitLink: "https://github.com/Rajashree0316/2-reviews-react.git",
+      tech: ["react", "js", "html", "css"],
+      features: ["Add reviews", "Update reviews", "Conditional rendering"]
+    },
+    {
+      id: 3,
+      title: "Accordion",
+      description: "Simple Accordion UI built with React hooks.",
+      imgUrl: accordion,
+      demoLink: "https://3accordion-react.netlify.app/",
+      gitLink: "https://github.com/Rajashree0316/3-accordion-react.git",
+      tech: ["react", "js", "bootstrap", "html", "css"],
+      features: ["Expandable sections", "Clean UI"]
+    },
+    {
+      id: 4,
+      title: "Tabs",
+      description: "Multi-tab UI with conditional rendering in React.",
+      imgUrl: tabs,
+      demoLink: "https://4tabs-react.netlify.app/",
+      gitLink: "https://github.com/Rajashree0316/4-tabs-react.git",
+      tech: ["react", "js", "bootstrap", "html", "css"], features: ["Switch between tabs", "Dynamic content"]
+    },
+    {
+      id: 5,
+      title: "Grocery-bud",
+      description: "Manage grocery list with add/edit/delete.",
+      imgUrl: grocery,
+      demoLink: "https://5grocery-bud-react.netlify.app/",
+      gitLink: "https://github.com/Rajashree0316/5-grocery-bud-react.git",
+      tech: ["react", "js", "html", "css"],
+      features: ["Add items", "Edit items", "Delete items"]
+    },
+    {
+      id: 6,
+      title: "Navbar",
+      description: "Reusable React navigation bar component.",
+      imgUrl: navC,
+      demoLink: "https://6navbar-react.netlify.app/",
+      gitLink: "https://github.com/Rajashree0316/6-navbar-react.git",
+      tech: ["react", "js", "router", "html", "css"],
+      features: ["Responsive navbar", "Reusable component"]
+    },
+    {
+      id: 7,
+      title: "Modal-Sidebar",
+      description: "Modals and sidebars via conditional rendering.",
+      imgUrl: modalSide,
+      demoLink: "https://7modal-sidebar-react.netlify.app/",
+      gitLink: "https://github.com/Rajashree0316/7-modal-sidebar-react.git",
+      tech: ["react", "js", "modal", "html", "css"],
+      features: ["Modal windows", "Sidebar toggle"]
+    },
+    {
+      id: 8,
+      title: "Cart",
+      description: "React cart simulation using context and hooks.",
+      imgUrl: foodCart,
+      demoLink: "https://8cart-react.netlify.app/",
+      gitLink: "https://github.com/Rajashree0316/8-cart-react.git",
+      tech: ["react", "js", "router", "html", "css"],
+      features: ["Add to cart", "Remove items", "Calculate total"]
+    },
+    {
+      id: 9,
+      title: "React-TodoList",
+      description: "Todo list app with CRUD operations using React hooks.",
+      imgUrl: todo,
+      demoLink: "https://9todolist-react.netlify.app/",
+      gitLink: "https://github.com/Rajashree0316/9-todolist-react.git",
+      tech: ["react", "js", "html", "css"],
+      features: ["Add tasks", "Mark complete", "Delete tasks"]
+    },
+    {
+      id: 10,
+      title: "Cocktails",
+      description: "Search and explore cocktails using third-party API.",
+      imgUrl: cocktail,
+      demoLink: "https://10cocktails-react.netlify.app/",
+      gitLink: "https://github.com/Rajashree0316/10-cocktails-react.git",
+      tech: ["react", "js", "router", "html", "css"],
+      features: ["Search cocktails", "API integration", "Explore details"]
+    },
   ];
 
   const sortedProjects = sortOrder === "newest" ? [...projects].sort((a, b) => b.id - a.id) : [...projects].sort((a, b) => a.id - b.id);
@@ -36,33 +125,33 @@ export const ProjectReact = ({ sortOrder, direction = "right" }) => {
   const [isPaused, setIsPaused] = useState(false);
   const sliderRef = useRef(null);
 
- useEffect(() => {
-  const slider = sliderRef.current;
-  if (!slider) return;
+  useEffect(() => {
+    const slider = sliderRef.current;
+    if (!slider) return;
 
-  const speed = 1; // smaller = slower
+    const speed = 1; // smaller = slower
 
-  let animationFrame;
+    let animationFrame;
 
-  const slide = () => {
-    if (!isPaused) {
-      slider.scrollLeft += direction === "right" ? speed : -speed;
+    const slide = () => {
+      if (!isPaused) {
+        slider.scrollLeft += direction === "right" ? speed : -speed;
 
-      // loop when end is reached
-      if (direction === "right" && slider.scrollLeft >= slider.scrollWidth - slider.clientWidth) {
-        slider.scrollLeft = 0;
+        // loop when end is reached
+        if (direction === "right" && slider.scrollLeft >= slider.scrollWidth - slider.clientWidth) {
+          slider.scrollLeft = 0;
+        }
+        if (direction === "left" && slider.scrollLeft <= 0) {
+          slider.scrollLeft = slider.scrollWidth - slider.clientWidth;
+        }
       }
-      if (direction === "left" && slider.scrollLeft <= 0) {
-        slider.scrollLeft = slider.scrollWidth - slider.clientWidth;
-      }
-    }
-    animationFrame = requestAnimationFrame(slide);
-  };
+      animationFrame = requestAnimationFrame(slide);
+    };
 
-  slide();
+    slide();
 
-  return () => cancelAnimationFrame(animationFrame);
-}, [isPaused, direction]);
+    return () => cancelAnimationFrame(animationFrame);
+  }, [isPaused, direction]);
 
 
   return (
